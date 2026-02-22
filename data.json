@@ -1,0 +1,26 @@
+{
+  "_comment": "هذا الملف للمرجعية فقط — عدّل الأسعار في app.js مباشرة",
+  "store": {
+    "name": "متجر هتلر",
+    "whatsapp": "201278443292",
+    "currency_rate_usd_to_egp": 50
+  },
+  "uc_packages": [
+    { "uc": 60,   "price_egp": 55   },
+    { "uc": 325,  "price_egp": 240  },
+    { "uc": 385,  "price_egp": 290  },
+    { "uc": 660,  "price_egp": 450  },
+    { "uc": 1845, "price_egp": 1200 },
+    { "uc": 3940, "price_egp": 2300 },
+    { "uc": 8100, "price_egp": 4450 }
+  ],
+  "prosperity": [
+    { "name": "عرض الازدهار الأول",   "price_egp": 60  },
+    { "name": "عرض الازدهار الثاني",  "price_egp": 150 },
+    { "name": "عرض الازدهار الثالث",  "price_egp": 240 }
+  ],
+  "memberships": [
+    { "name": "PRIME العادية",  "price_egp": 55,  "per": "month" },
+    { "name": "PRIME المميزة",  "price_egp": 485, "per": "month" }
+  ]
+}
