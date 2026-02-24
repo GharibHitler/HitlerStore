@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>متجر هتلر | شدات PUBG Mobile الأصلية</title>
+  <meta name="description" content="متجر هتلر — أضخم وأموثق متجر لشحن شدات ببجي موبايل في مصر. أسعار حصرية، توصيل فوري، ضمان 100%."/>
+  <meta name="keywords" content="شدات ببجي, UC ببجي, شحن pubg, شدات مصر, متجر هتلر"/>
+  <meta property="og:title" content="متجر هتلر | شدات PUBG Mobile"/>
+  <meta property="og:description" content="أضخم متجر شدات في مصر — أسعار لا تُقاوم وتوصيل فوري"/>
+  <meta name="theme-color" content="#FF6B00"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;600;800;900&family=Tajawal:wght@300;400;500;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="ld-inner">
+    <div class="ld-logo">HITLER<em>STORE</em></div>
+    <div class="ld-sub">شدات PUBG Mobile</div>
+    <div class="ld-bar-row">
+      <div class="ld-bar"><div class="ld-fill" id="ldFill"></div></div>
+      <span class="ld-pct" id="ldPct">0%</span>
+    </div>
+    <div class="ld-dots"><span></span><span></span><span></span></div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header id="hdr">
+  <div class="hdr-wrap">
+    <a href="#home" class="logo">
+      <div class="logo-bolt">⚡</div>
+      <span>HITLER<em>STORE</em></span>
+    </a>
+    <nav class="hdr-nav">
+      <a href="#packages"    onclick="closeMob()">الباقات</a>
+      <a href="#calculator"  onclick="closeMob()">حاسبة UC</a>
+      <a href="#special"     onclick="closeMob()">العرض الخاص</a>
+      <a href="#prosperity"  onclick="closeMob()">الازدهار</a>
+      <a href="#memberships" onclick="closeMob()">العضويات</a>
+      <a href="#how"         onclick="closeMob()">الشراء</a>
+    </nav>
+    <div class="hdr-right">
+      <button class="btn-cur" id="curBtn">
+        <span id="curLabel">EGP</span> ⇄ USD
+      </button>
+      <a href="https://wa.me/201278443292" target="_blank" class="btn-wa-hdr">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        واتساب
+      </a>
+    </div>
+    <button class="burger" id="burger">☰</button>
+  </div>
+  <nav class="mob-nav" id="mobNav">
+    <a href="#packages"    onclick="closeMob()">💎 الباقات</a>
+    <a href="#calculator"  onclick="closeMob()">🧮 حاسبة UC</a>
+    <a href="#special"     onclick="closeMob()">🔥 العرض الخاص</a>
+    <a href="#prosperity"  onclick="closeMob()">🌸 الازدهار</a>
+    <a href="#memberships" onclick="closeMob()">👑 العضويات</a>
+    <a href="#how"         onclick="closeMob()">📋 الشراء</a>
+    <a href="https://wa.me/201278443292" target="_blank" class="mob-wa">📱 تواصل على واتساب</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <div class="hex-grid"></div>
+    <div class="glow-top"></div>
+    <div class="glow-right"></div>
+    <div class="scanline"></div>
+  </div>
+  <div class="hero-wrap">
+    <div class="hero-left">
+      <div class="hero-badge"><span class="live-dot"></span>الأول في مصر — موثوق ومضمون</div>
+      <h1 class="hero-h1">
+        <span class="h1-sm">شدات</span>
+        <span class="h1-big">PUBG<br/>MOBILE</span>
+      </h1>
+      <div class="hero-brand">متجر <strong>هتلر</strong> الرسمي</div>
+      <p class="hero-desc">أضخم وأموثق متجر لشحن شدات ببجي في مصر — أسعار تنافسية لا تُقاوم، توصيل فوري على حسابك خلال دقائق، ودعم على مدار الساعة.</p>
+      <div class="hero-pills">
+        <div class="pill">✅ شدات أصلية 100%</div>
+        <div class="pill">⚡ توصيل فوري</div>
+        <div class="pill">🔒 دفع آمن</div>
+        <div class="pill">🌙 دعم 24/7</div>
+      </div>
+      <div class="hero-ctas">
+        <a href="#packages" class="cta-main">🛒 اشترِ الآن</a>
+        <a href="https://wa.me/201278443292" target="_blank" class="cta-wa">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          تواصل معنا
+        </a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="stats-card">
+        <div class="stats-head"><span class="live-dot"></span>إحصائيات المتجر — مباشر</div>
+        <div class="stat-row"><span class="stat-lbl">عملاء راضون</span><span class="stat-val orange">+5,000</span></div>
+        <div class="stat-row"><span class="stat-lbl">طلبات منجزة</span><span class="stat-val gold">+12,000</span></div>
+        <div class="stat-row"><span class="stat-lbl">معدل الرضا</span><span class="stat-val green">99.8%</span></div>
+        <div class="stat-row"><span class="stat-lbl">سنوات خبرة</span><span class="stat-val white">3+ سنوات</span></div>
+        <div class="stats-foot">
+          <div class="trust-row"><span>🔒</span> بيانات حسابك آمنة تماماً</div>
+          <div class="trust-row"><span>⚡</span> شحن فوري خلال دقائق</div>
+          <div class="trust-row"><span>💬</span> دعم فني على واتساب</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-bar-wrap">
+    <div class="tb"><span>🔒</span> دفع آمن 100%</div>
+    <div class="tb"><span>⚡</span> تسليم فوري</div>
+    <div class="tb"><span>✅</span> شدات أصلية</div>
+    <div class="tb"><span>🌟</span> دعم 24/7</div>
+    <div class="tb"><span>🔄</span> استرداد مضمون</div>
+    <div class="tb"><span>🏆</span> الأفضل في مصر</div>
+  </div>
+</div>
+
+<!-- UC CALCULATOR -->
+<section class="sec sec-alt" id="calculator">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-tag">🧮 الحاسبة</div>
+      <h2 class="sec-h2">حاسبة <em>الشدات</em></h2>
+      <p class="sec-sub">احسب كم تحتاج أو كم ستدفع — بضغطة واحدة</p>
+    </div>
+    <div class="calc-card reveal">
+
+      <!-- Mode Tabs -->
+      <div class="calc-tabs">
+        <button class="calc-tab active" id="tabUC"    onclick="switchTab('uc')">
+          <img src="https://img.icons8.com/fluency/20/coin.png" alt="" onerror="this.style.display='none'"/>
+          شدات ← سعر
+        </button>
+        <button class="calc-tab"        id="tabMoney" onclick="switchTab('money')">
+          💰 فلوس ← شدات
+        </button>
+      </div>
+
+      <!-- Panel UC → Price -->
+      <div class="calc-panel" id="panelUC">
+        <div class="calc-inner">
+          <div class="calc-left">
+            <label class="calc-label">
+              <img src="https://img.icons8.com/fluency/20/coin.png" alt="UC" onerror="this.style.display='none'"/>
+              كم شدة تحتاج؟
+            </label>
+            <div class="calc-field">
+              <input type="number" id="inpUC" class="calc-input" placeholder="مثال: 1000" min="1" max="99999" oninput="calcUC()"/>
+              <span class="calc-unit">UC</span>
+            </div>
+            <p class="calc-note">
+              ⚠️ الشدات لا تُشحن بأعداد عشوائية — سنجمع الباقات المتاحة للوصول إلى العدد المطلوب أو أقرب عدد ممكن.
+            </p>
+          </div>
+          <div class="calc-result" id="resUC">
+            <div class="calc-placeholder"><span>🎮</span><span>أدخل العدد لتظهر النتيجة</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel Money → UC -->
+      <div class="calc-panel hidden" id="panelMoney">
+        <div class="calc-inner">
+          <div class="calc-left">
+            <label class="calc-label">💰 كم معك من الجنيهات؟</label>
+            <div class="calc-field">
+              <input type="number" id="inpMoney" class="calc-input" placeholder="مثال: 500" min="1" oninput="calcMoney()"/>
+              <span class="calc-unit">جنيه</span>
+            </div>
+            <p class="calc-note">
+              💡 سنعرض أفضل تشكيلة باقات تناسب ميزانيتك وتعطيك أكبر عدد من الشدات.
+            </p>
+          </div>
+          <div class="calc-result" id="resMoney">
+            <div class="calc-placeholder"><span>💰</span><span>أدخل المبلغ لتظهر النتيجة</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SPECIAL OFFER -->
+<section class="sec" id="special">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-tag">🔥 عرض محدود</div>
+      <h2 class="sec-h2">عرض <em>شحن السيزون</em></h2>
+      <p class="sec-sub">العرض ينتهي خلال 20 يوماً — لا تفوّت الفرصة!</p>
+    </div>
+    <div class="special-card reveal">
+      <div class="special-timer-wrap">
+        <div class="special-timer-label">⏳ ينتهي العرض خلال</div>
+        <div class="special-timer">
+          <div class="timer-unit"><span id="tDays">20</span><small>يوم</small></div>
+          <div class="timer-sep">:</div>
+          <div class="timer-unit"><span id="tHours">00</span><small>ساعة</small></div>
+          <div class="timer-sep">:</div>
+          <div class="timer-unit"><span id="tMins">00</span><small>دقيقة</small></div>
+          <div class="timer-sep">:</div>
+          <div class="timer-unit"><span id="tSecs">00</span><small>ثانية</small></div>
+        </div>
+      </div>
+      <div class="special-body">
+        <div class="special-info">
+          <div class="special-badge-wrap">
+            <span class="special-hot-badge">🔥 عرض حصري</span>
+            <span class="special-season-badge">📅 شحن السيزون</span>
+          </div>
+          <h3 class="special-title">شحن السيزون الكامل (QR Code)</h3>
+          <div class="special-price-wrap">
+            <span class="special-price">150 جنيه</span>
+            <span class="special-price-note">بدلاً من 245 جنيه</span>
+          </div>
+          <div class="special-condition">
+            <div class="condition-icon">⚠️</div>
+            <div class="condition-text">
+              <strong>شرط أساسي:</strong> يجب أن يكون الحساب مغلقاً (Private) لمدة أسبوع كامل قبل الشحن
+            </div>
+          </div>
+          <ul class="special-feats">
+            <li>✅ شحن فوري خلال دقائق</li>
+            <li>✅ عبر QR Code رسمي</li>
+            <li>✅ مضمون 100% أو استرداد كامل</li>
+            <li>✅ دعم فني مباشر على واتساب</li>
+          </ul>
+          <button class="special-btn" onclick="buySpecial()">
+            🛒 احجز العرض الآن على واتساب
+          </button>
+        </div>
+        <div class="special-visual">
+          <div class="special-price-card">
+            <div class="spc-label">السعر الحصري</div>
+            <div class="spc-main">150<span>جنيه</span></div>
+            <div class="spc-old">بدلاً من 245 جنيه</div>
+            <div class="spc-save">وفّر 95 جنيه 🎉</div>
+            <div class="spc-method">الدفع عبر واتساب</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UC PACKAGES -->
+<section class="sec sec-alt" id="packages">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-tag">💎 الشدات</div>
+      <h2 class="sec-h2">باقات <em>الشدات</em></h2>
+      <p class="sec-sub">اختر كميتك واضغط اشترِ — واتساب يفتح برسالة جاهزة فوراً</p>
+    </div>
+    <div class="pkg-grid" id="ucGrid"></div>
+  </div>
+</section>
+
+<!-- PROSPERITY -->
+<section class="sec" id="prosperity">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-tag">🌸 الازدهار</div>
+      <h2 class="sec-h2">عروض <em>الازدهار</em></h2>
+      <p class="sec-sub">عروض موسمية حصرية بأسعار استثنائية</p>
+    </div>
+    <div class="pros-grid" id="prosGrid"></div>
+  </div>
+</section>
+
+<!-- MEMBERSHIPS -->
+<section class="sec sec-alt" id="memberships">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-tag">👑 العضويات</div>
+      <h2 class="sec-h2">عضويات <em>PRIME</em></h2>
+      <p class="sec-sub">اشترك شهرياً واحصل على أكبر المكافآت</p>
+    </div>
+    <div class="mem-grid" id="memGrid"></div>
+  </div>
+</section>
+
+<!-- HOW TO BUY -->
+<section class="sec" id="how">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-tag">📋 الطريقة</div>
+      <h2 class="sec-h2">كيف <em>تشتري؟</em></h2>
+      <p class="sec-sub">أربع خطوات بسيطة وشدتك على حسابك</p>
+    </div>
+    <div class="steps-grid" id="stepsGrid"></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div class="footer-logo">HITLER<em>STORE</em></div>
+    <p class="footer-desc">أضخم متجر لشحن شدات ببجي موبايل في مصر 🇪🇬</p>
+    <a href="https://wa.me/201278443292" target="_blank" class="footer-wa">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      +201278443292
+    </a>
+    <p class="footer-copy">© 2025 متجر هتلر — جميع الحقوق محفوظة</p>
+  </div>
+</footer>
+
+<!-- WA FLOAT -->
+<a href="https://wa.me/201278443292" target="_blank" class="wa-float" title="تواصل على واتساب">
+  <span class="wa-ring"></span>
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<!-- LIVE POPUPS -->
+<div id="live-pop"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
