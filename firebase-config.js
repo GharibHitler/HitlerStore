@@ -18,7 +18,7 @@ const FIREBASE_CONFIG = {
 // ════════════════════════════════════════════════
 const STORE_CONFIG = {
   name:          "Hitler Store",
-  adminPassword: "admin123",        // ← غيّر الباسورد
+  adminPassword: "OmarGharib",        // ← غيّر الباسورد
   packages: [
     { id:"uc60",   label:"60 UC",   price:55   },
     { id:"uc325",  label:"325 UC",  price:240  },
