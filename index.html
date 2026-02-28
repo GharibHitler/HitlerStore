@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>HITLERSTORE • شدات PUBG الأصلية</title>
+  <meta name="theme-color" content="#7C3AED"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=Tajawal:wght@400;500;700;900&family=Space+Mono:wght@700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div id="cur"></div>
+<div id="cur-r"></div>
+
+<!-- LOADER — بسيط وسريع -->
+<div id="loader">
+  <div class="ld-box">
+    <div class="ld-logo">HITLER<em>STORE</em></div>
+    <div class="ld-bar"><div class="ld-fill" id="ldFill"></div></div>
+    <div class="ld-dots"><span></span><span></span><span></span></div>
+  </div>
+</div>
+
+<!-- ORDER MODAL -->
+<div id="oModal" class="mo">
+  <div class="mo-box">
+    <button class="mo-x" onclick="closeModal()">✕</button>
+    <div class="mo-badge-row"><span class="mo-badge">NEW ORDER</span></div>
+    <div class="mo-pkg" id="moPkg">660 UC — 450 جنيه</div>
+    <div class="mo-fields">
+      <div class="mo-f"><label>اسمك</label><input id="mName" placeholder="أحمد"/></div>
+      <div class="mo-f"><label>Player ID</label><input id="mGameId" placeholder="123456789" inputmode="numeric"/></div>
+      <div class="mo-f"><label>اسمك في اللعبة</label><input id="mGameName" placeholder="Pro_Player"/></div>
+    </div>
+    <div class="mo-hint">⚡ بعد الإرسال هنبعتلك رقم الكاش مباشرة</div>
+    <button class="mo-submit" id="moBtn" onclick="submitOrder()">إرسال الطلب ←</button>
+  </div>
+</div>
+
+<!-- SUCCESS MODAL -->
+<div id="sModal" class="mo">
+  <div class="mo-box mo-sm">
+    <div class="s-tick">✓</div>
+    <div class="s-title">تم استلام طلبك!</div>
+    <div class="s-id" id="sId">#00000000</div>
+    <p class="s-desc">هنراجعه ونبعتلك رقم الكاش<br/>خلال دقائق</p>
+    <a href="order.html" class="s-btn">تابع طلبك →</a>
+    <button class="s-close" onclick="closeSModal()">إغلاق</button>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-logo">HS<em>.</em></a>
+    <div class="nav-links">
+      <a href="#packages">الباقات</a>
+      <a href="#calculator">الحاسبة</a>
+      <a href="#special">العروض</a>
+      <a href="#how">الشراء</a>
+    </div>
+    <div class="nav-end">
+      <button id="curBtn" class="nav-cur">EGP ⇄</button>
+      <a href="order.html" class="nav-track">طلباتي ↗</a>
+    </div>
+    <button class="nav-burger" id="burger">☰</button>
+  </div>
+  <div class="nav-mob" id="mobNav">
+    <a href="#packages" onclick="closeMob()">الباقات</a>
+    <a href="#calculator" onclick="closeMob()">الحاسبة</a>
+    <a href="#special" onclick="closeMob()">العروض</a>
+    <a href="#how" onclick="closeMob()">الشراء</a>
+    <a href="order.html" class="mob-track">📋 تابع طلبك</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="top" class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-bg-text" aria-hidden="true">PUBG</div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span class="live-dot"></span>الأول في مصر — موثوق ومضمون
+    </div>
+    <h1 class="hero-h1">
+      <span class="h1-top">شدات</span>
+      <span class="h1-main">PUBG<br class="mob-only"/>MOBILE</span>
+      <span class="h1-sub">بسعر لا يُنافَس</span>
+    </h1>
+    <p class="hero-desc">أضخم وأموثق متجر شدات ببجي في مصر<br/>توصيل فوري · دفع آمن · خدمة 24/7</p>
+    <div class="hero-btns">
+      <a href="#packages" class="btn-main">اشترِ الآن ↓</a>
+      <a href="order.html" class="btn-outline">تابع طلبك →</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><span class="hstat-n">+5K</span><span class="hstat-l">عميل راضٍ</span></div>
+      <div class="hstat-sep"></div>
+      <div class="hstat"><span class="hstat-n">+12K</span><span class="hstat-l">طلب منجز</span></div>
+      <div class="hstat-sep"></div>
+      <div class="hstat"><span class="hstat-n">99.8%</span><span class="hstat-l">معدل الرضا</span></div>
+    </div>
+  </div>
+
+  <!-- Floating cards (decorative) -->
+  <div class="hero-float" aria-hidden="true">
+    <div class="fc fc1"><span class="fc-uc">660</span><span class="fc-tag">UC</span><span class="fc-p">450 جنيه</span></div>
+    <div class="fc fc2"><span class="fc-uc">1845</span><span class="fc-tag">UC</span><span class="fc-p">1200 جنيه</span></div>
+    <div class="fc fc3 fc-live"><span class="fc-dot"></span>طلب جديد الآن</div>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="strip">
+  <div class="strip-track">
+    <span>✅ شدات أصلية</span><span class="sx">◆</span>
+    <span>⚡ توصيل فوري</span><span class="sx">◆</span>
+    <span>🔒 دفع آمن</span><span class="sx">◆</span>
+    <span>🌙 دعم 24/7</span><span class="sx">◆</span>
+    <span>🔄 استرداد مضمون</span><span class="sx">◆</span>
+    <span>🏆 الأفضل في مصر</span><span class="sx">◆</span>
+    <span>✅ شدات أصلية</span><span class="sx">◆</span>
+    <span>⚡ توصيل فوري</span><span class="sx">◆</span>
+    <span>🔒 دفع آمن</span><span class="sx">◆</span>
+  </div>
+</div>
+
+<!-- CALCULATOR -->
+<section class="sec" id="calculator">
+  <div class="wrap">
+    <div class="sec-hd reveal">
+      <div class="sec-tag">🧮 الحاسبة</div>
+      <h2>احسب <em>شدتك</em></h2>
+      <p>شدات ← سعر أو فلوس ← شدات</p>
+    </div>
+    <div class="calc-card reveal">
+      <div class="calc-tabs">
+        <button class="ctab active" id="tabUC" onclick="switchTab('uc')">شدات ← سعر</button>
+        <button class="ctab" id="tabMoney" onclick="switchTab('money')">فلوس ← شدات</button>
+      </div>
+      <div class="calc-body" id="panelUC">
+        <div class="calc-row">
+          <div class="calc-side">
+            <label class="clbl">كم شدة تحتاج؟</label>
+            <div class="cinp-wrap">
+              <input type="number" id="inpUC" class="cinp" placeholder="مثال: 1000" oninput="calcUC()"/>
+              <span class="cunit">UC</span>
+            </div>
+            <p class="cnote">⚠️ سنجمع الباقات للوصول للعدد المطلوب</p>
+          </div>
+          <div class="calc-res" id="resUC"><div class="cph"><span>🎮</span><span>أدخل العدد</span></div></div>
+        </div>
+      </div>
+      <div class="calc-body hidden" id="panelMoney">
+        <div class="calc-row">
+          <div class="calc-side">
+            <label class="clbl">كم معك من الجنيهات؟</label>
+            <div class="cinp-wrap">
+              <input type="number" id="inpMoney" class="cinp" placeholder="مثال: 500" oninput="calcMoney()"/>
+              <span class="cunit">جنيه</span>
+            </div>
+            <p class="cnote">💡 أفضل تشكيلة لميزانيتك</p>
+          </div>
+          <div class="calc-res" id="resMoney"><div class="cph"><span>💰</span><span>أدخل المبلغ</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPECIAL OFFER -->
+<section class="sec sec-alt" id="special">
+  <div class="wrap">
+    <div class="sec-hd reveal">
+      <div class="sec-tag">🔥 عرض محدود</div>
+      <h2>شحن <em>السيزون</em></h2>
+    </div>
+    <div class="sp-card reveal">
+      <div class="sp-left">
+        <div class="sp-top-badges">
+          <span class="spb spb-fire">🔥 حصري</span>
+          <span class="spb spb-season">📅 السيزون</span>
+        </div>
+        <h3 class="sp-title">شحن السيزون الكامل<br/><em>عبر QR Code</em></h3>
+        <div class="sp-price-row">
+          <span class="sp-price">150</span>
+          <div>
+            <span class="sp-cur">جنيه</span>
+            <span class="sp-was">بدلاً من 245 جنيه</span>
+          </div>
+        </div>
+        <ul class="sp-list">
+          <li>شحن فوري خلال دقائق</li>
+          <li>عبر QR Code رسمي</li>
+          <li>مضمون 100% أو استرداد كامل</li>
+        </ul>
+        <button class="btn-main" onclick="openModal('شحن السيزون QR',150,'season')">احجز العرض الآن ←</button>
+      </div>
+      <div class="sp-right">
+        <div class="sp-timer-box">
+          <div class="sp-tlbl">⏳ ينتهي خلال</div>
+          <div class="sp-timer">
+            <div class="tu"><span id="tD">20</span><small>يوم</small></div>
+            <div class="tsep">:</div>
+            <div class="tu"><span id="tH">00</span><small>ساعة</small></div>
+            <div class="tsep">:</div>
+            <div class="tu"><span id="tM">00</span><small>دقيقة</small></div>
+            <div class="tsep">:</div>
+            <div class="tu"><span id="tS">00</span><small>ثانية</small></div>
+          </div>
+          <div class="sp-save">وفّر 95 جنيه 🎉</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="sec" id="packages">
+  <div class="wrap">
+    <div class="sec-hd reveal">
+      <div class="sec-tag">💎 الشدات</div>
+      <h2>باقات <em>UC</em></h2>
+      <p>اختر كميتك واضغط اشترِ</p>
+    </div>
+    <div class="pkg-grid" id="ucGrid"></div>
+  </div>
+</section>
+
+<!-- PROSPERITY -->
+<section class="sec sec-alt" id="prosperity">
+  <div class="wrap">
+    <div class="sec-hd reveal">
+      <div class="sec-tag">🌸 الازدهار</div>
+      <h2>عروض <em>الازدهار</em></h2>
+    </div>
+    <div class="pros-grid" id="prosGrid"></div>
+  </div>
+</section>
+
+<!-- MEMBERSHIPS -->
+<section class="sec" id="memberships">
+  <div class="wrap">
+    <div class="sec-hd reveal">
+      <div class="sec-tag">👑 العضويات</div>
+      <h2>عضويات <em>PRIME</em></h2>
+    </div>
+    <div class="mem-grid" id="memGrid"></div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section class="sec sec-alt" id="how">
+  <div class="wrap">
+    <div class="sec-hd reveal">
+      <div class="sec-tag">📋 الطريقة</div>
+      <h2>كيف <em>تشتري؟</em></h2>
+    </div>
+    <div class="steps-grid" id="stepsGrid"></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap footer-in">
+    <div class="ft-logo">HITLER<em>STORE</em></div>
+    <p>أضخم متجر لشحن شدات ببجي موبايل في مصر 🇪🇬</p>
+    <a href="order.html" class="ft-track">📋 تابع طلبك</a>
+    <div class="ft-copy">© 2025 HITLERSTORE — جميع الحقوق محفوظة</div>
+  </div>
+</footer>
+
+<!-- WA FLOAT -->
+<a href="https://wa.me/201278443292" target="_blank" class="wa-btn">
+  <div class="wa-ring"></div>
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<div id="livePop"></div>
+
+<script src="firebase-config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
