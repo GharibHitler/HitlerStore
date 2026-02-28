@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Hitler Store — طلبك</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&family=Oxanium:wght@700;900&display=swap" rel="stylesheet"/>
+  <style>
+    :root{
+      --black:#050608;--dark:#0d1520;--card:#101828;
+      --orange:#FF6B00;--gold:#FFD700;--green:#25D366;--red:#FF1744;--cyan:#00E5FF;
+      --white:#F0F4FF;--muted:#6B7FA3;
+      --font-ar:'Tajawal',sans-serif;--font-d:'Oxanium',monospace;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{height:100%}
+    body{font-family:var(--font-ar);background:var(--black);color:var(--white);min-height:100vh;display:flex;flex-direction:column}
+
+    /* TOP BAR */
+    .top-bar{
+      background:rgba(8,12,18,.97);backdrop-filter:blur(20px);
+      border-bottom:1px solid rgba(255,107,0,.15);
+      padding:13px 20px;display:flex;align-items:center;gap:12px;
+      position:sticky;top:0;z-index:100;flex-shrink:0;
+    }
+    .tb-bolt{width:32px;height:32px;background:linear-gradient(135deg,var(--orange),var(--gold));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;box-shadow:0 0 12px rgba(255,107,0,.5);flex-shrink:0}
+    .tb-logo{font-family:var(--font-d);font-size:1.15rem;font-weight:900;color:var(--white)}
+    .tb-logo em{color:var(--orange);font-style:normal}
+    .tb-status{margin-right:auto;display:flex;align-items:center;gap:6px;font-size:.8rem;color:var(--green);font-weight:700}
+    .tb-status-dot{width:7px;height:7px;background:var(--green);border-radius:50%;animation:blink 1.5s ease-in-out infinite;flex-shrink:0}
+    .tb-back{
+      display:flex;align-items:center;gap:6px;
+      background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);
+      color:var(--muted);padding:6px 12px;border-radius:8px;
+      font-size:.8rem;font-weight:700;text-decoration:none;transition:.2s;
+    }
+    .tb-back:hover{color:var(--orange);border-color:rgba(255,107,0,.3)}
+
+    /* CHAT */
+    #chatWrap{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;padding-bottom:100px}
+    #chatWrap::-webkit-scrollbar{width:4px}
+    #chatWrap::-webkit-scrollbar-thumb{background:rgba(255,107,0,.3);border-radius:2px}
+
+    .bubble{max-width:84%;padding:12px 16px;border-radius:18px;font-size:.93rem;line-height:1.6;animation:fadeUp .3s ease}
+    .bubble.store{
+      background:var(--card);border:1px solid rgba(255,107,0,.12);
+      border-radius:18px 18px 18px 4px;align-self:flex-start;
+    }
+    .bubble.store .sender{font-size:.72rem;color:var(--orange);font-weight:800;margin-bottom:5px;display:flex;align-items:center;gap:5px}
+    .bubble.me{
+      background:linear-gradient(135deg,rgba(255,107,0,.18),rgba(255,107,0,.08));
+      border:1px solid rgba(255,107,0,.22);
+      border-radius:18px 18px 4px 18px;align-self:flex-end;
+    }
+    .bubble.system{
+      background:rgba(37,211,102,.07);border:1px solid rgba(37,211,102,.18);
+      border-radius:12px;align-self:center;text-align:center;
+      font-size:.84rem;color:rgba(37,211,102,.9);max-width:92%;padding:10px 14px;
+    }
+
+    /* Typing */
+    .typing-bubble{
+      display:flex;align-items:center;gap:5px;
+      padding:12px 16px;background:var(--card);border:1px solid rgba(255,107,0,.1);
+      border-radius:18px 18px 18px 4px;align-self:flex-start;width:fit-content;
+    }
+    .typing-bubble span{width:7px;height:7px;background:var(--muted);border-radius:50%;animation:typeDot 1.2s ease-in-out infinite}
+    .typing-bubble span:nth-child(2){animation-delay:.2s}
+    .typing-bubble span:nth-child(3){animation-delay:.4s}
+
+    /* Status badge */
+    .s-badge{display:inline-flex;align-items:center;gap:5px;padding:4px 12px;border-radius:20px;font-size:.78rem;font-weight:800;margin-top:6px}
+    .s-badge.pending{background:rgba(255,215,0,.1);border:1px solid rgba(255,215,0,.3);color:var(--gold)}
+    .s-badge.confirmed{background:rgba(0,229,255,.1);border:1px solid rgba(0,229,255,.3);color:var(--cyan)}
+    .s-badge.done{background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.3);color:var(--green)}
+
+    /* Package buttons */
+    .pkg-list{display:flex;flex-direction:column;gap:7px;margin-top:10px}
+    .pkg-btn{
+      display:flex;justify-content:space-between;align-items:center;
+      background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+      padding:10px 14px;border-radius:11px;
+      cursor:pointer;font-family:var(--font-ar);color:var(--white);
+      font-size:.88rem;font-weight:700;transition:.2s;
+    }
+    .pkg-btn:hover{border-color:var(--orange);background:rgba(255,107,0,.08)}
+    .pkg-btn .price{color:var(--orange);font-family:var(--font-d);font-weight:900}
+
+    /* Order form */
+    .order-form{margin-top:12px;display:flex;flex-direction:column;gap:9px}
+    .order-form input{
+      background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
+      border-radius:10px;color:var(--white);font-family:var(--font-ar);
+      padding:11px 14px;font-size:.92rem;outline:none;transition:.2s;
+    }
+    .order-form input:focus{border-color:rgba(255,107,0,.4);background:rgba(255,107,0,.04)}
+    .order-form input::placeholder{color:var(--muted)}
+    .order-form .submit-btn{
+      background:linear-gradient(135deg,var(--orange),#ff8c00);
+      border:none;border-radius:10px;color:#000;font-weight:900;
+      font-size:.95rem;padding:13px;cursor:pointer;
+      font-family:var(--font-ar);transition:.2s;margin-top:2px;
+    }
+    .order-form .submit-btn:hover{opacity:.9;transform:translateY(-1px)}
+    .order-form .submit-btn:disabled{opacity:.5;transform:none}
+
+    /* Order summary box */
+    .order-summary{
+      background:rgba(255,107,0,.07);border:1px solid rgba(255,107,0,.2);
+      border-radius:12px;padding:14px;margin-top:10px;
+    }
+    .os-row{display:flex;justify-content:space-between;padding:5px 0;font-size:.86rem}
+    .os-row .lbl{color:var(--muted)}
+    .os-row .val{color:var(--white);font-weight:700}
+    .os-id{
+      font-family:var(--font-d);font-size:1rem;font-weight:900;
+      color:var(--orange);background:rgba(255,107,0,.1);
+      padding:4px 12px;border-radius:8px;display:inline-block;margin-top:6px;
+    }
+
+    /* Quick btns */
+    #quickWrap{
+      position:fixed;bottom:60px;left:0;right:0;
+      padding:8px 16px;display:flex;gap:8px;flex-wrap:wrap;
+      background:rgba(5,6,8,.8);backdrop-filter:blur(10px);
+    }
+    .q-btn{
+      background:rgba(255,107,0,.1);border:1px solid rgba(255,107,0,.25);
+      color:var(--orange);padding:6px 14px;border-radius:20px;
+      font-size:.82rem;font-weight:700;cursor:pointer;font-family:var(--font-ar);transition:.2s;
+    }
+    .q-btn:hover{background:rgba(255,107,0,.25)}
+
+    /* Input bar */
+    #inputBar{
+      position:fixed;bottom:0;left:0;right:0;
+      background:rgba(8,12,18,.97);backdrop-filter:blur(20px);
+      border-top:1px solid rgba(255,255,255,.06);
+      padding:10px 14px;display:flex;gap:10px;align-items:flex-end;
+    }
+    #msgInput{
+      flex:1;background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.1);border-radius:22px;
+      color:var(--white);font-family:var(--font-ar);font-size:.93rem;
+      padding:10px 16px;outline:none;resize:none;max-height:110px;transition:.2s;
+    }
+    #msgInput:focus{border-color:rgba(255,107,0,.4)}
+    #msgInput::placeholder{color:var(--muted)}
+    #sendBtn{
+      width:42px;height:42px;background:linear-gradient(135deg,var(--orange),#ff8c00);
+      border:none;border-radius:50%;color:#000;font-size:1rem;
+      display:flex;align-items:center;justify-content:center;
+      cursor:pointer;flex-shrink:0;transition:.2s;
+    }
+    #sendBtn:hover{transform:scale(1.1)}
+    #sendBtn:disabled{opacity:.4;transform:none}
+
+    @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes typeDot{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-6px)}}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+  </style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="tb-bolt">⚡</div>
+  <div class="tb-logo">HITLER<em>STORE</em></div>
+  <div class="tb-status"><div class="tb-status-dot"></div>متصل الآن</div>
+  <a href="index.html" class="tb-back">← المتجر</a>
+</div>
+
+<div id="chatWrap"></div>
+<div id="quickWrap"></div>
+<div id="inputBar">
+  <textarea id="msgInput" rows="1" placeholder="اكتب رسالتك..."
+    oninput="autoResize(this)"
+    onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendMsg()}"></textarea>
+  <button id="sendBtn" onclick="sendMsg()">➤</button>
+</div>
+
+<script src="firebase-config.js"></script>
+<script type="module">
+  import { initializeApp }   from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getFirestore, doc, addDoc, collection,
+           onSnapshot, updateDoc, arrayUnion, serverTimestamp }
+                             from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+  const app = initializeApp(FIREBASE_CONFIG);
+  const db  = getFirestore(app);
+
+  // ── State ──
+  let orderId  = localStorage.getItem("hs_order_id") || null;
+  let step     = orderId ? "existing" : "welcome";
+  let selPkg   = null;
+  let custName = "";
+  let lastMsgCount = 0;
+
+  const chat    = document.getElementById("chatWrap");
+  const input   = document.getElementById("msgInput");
+  const sendBtn = document.getElementById("sendBtn");
+  const qWrap   = document.getElementById("quickWrap");
+
+  // ── Helpers ──
+  function bubble(html, type="store", delay=0) {
+    return new Promise(r => setTimeout(() => {
+      const d = document.createElement("div");
+      d.className = `bubble ${type}`;
+      if (type==="store") html = `<div class="sender">⚡ Hitler Store</div>${html}`;
+      d.innerHTML = html;
+      chat.appendChild(d);
+      scrollBot(); r();
+    }, delay));
+  }
+  function typing(ms=1000){
+    const d=document.createElement("div");
+    d.className="typing-bubble";d.id="typ";
+    d.innerHTML="<span></span><span></span><span></span>";
+    chat.appendChild(d);scrollBot();
+    return new Promise(r=>setTimeout(()=>{d.remove();r();},ms));
+  }
+  function scrollBot(){setTimeout(()=>window.scrollTo(0,document.body.scrollHeight),50)}
+  function setQuick(arr){
+    qWrap.innerHTML="";
+    arr.forEach(b=>{
+      const el=document.createElement("button");
+      el.className="q-btn";el.textContent=b.label;
+      el.onclick=()=>b.action();qWrap.appendChild(el);
+    });
+  }
+  function clearQuick(){qWrap.innerHTML=""}
+  function disableInput(){input.disabled=true;sendBtn.disabled=true}
+  function enableInput(){input.disabled=false;sendBtn.disabled=false;input.focus()}
+
+  // ── Flow ──
+  async function start(){
+    // Check URL params (coming from store buy button)
+    const params = new URLSearchParams(location.search);
+    const pkgId  = params.get("pkg");
+    const pkgLbl = params.get("label");
+    const pkgPrc = params.get("price");
+
+    if(orderId){ await loadExisting(); return; }
+
+    await typing(700);
+    await bubble(`أهلاً بك في <strong>Hitler Store</strong> 👋<br/>أكبر متجر لشحن شدات PUBG Mobile في مصر!`);
+    await typing(500);
+    await bubble(`إيه اسمك الأول؟`);
+    step="ask_name";
+
+    // If came from store with package pre-selected
+    if(pkgId && pkgLbl && pkgPrc){
+      selPkg = { id:pkgId, label:pkgLbl, price:parseInt(pkgPrc) };
+    }
+    enableInput();
+  }
+
+  async function handleName(name){
+    custName=name.trim();
+    disableInput();
+    await bubble(custName,"me");
+    await typing(600);
+    if(selPkg){
+      await bubble(`أهلاً ${custName}! 😊<br/>شايف إنك اخترت <strong>${selPkg.label}</strong> بـ <strong>${selPkg.price.toLocaleString()} جنيه</strong> 🔥`);
+      await typing(500);
+      showForm();
+    } else {
+      await bubble(`أهلاً ${custName}! 😊<br/>اختار الباقة اللي تحب:`);
+      showPkgs();
+    }
+  }
+
+  function showPkgs(){
+    const html=`<div class="pkg-list">${
+      STORE_CONFIG.packages.map(p=>`
+        <button class="pkg-btn" onclick="pickPkg('${p.id}','${p.label}',${p.price})">
+          <span>${p.label}</span>
+          <span class="price">${p.price.toLocaleString()} جنيه</span>
+        </button>`).join("")
+    }</div>`;
+    bubble(html);
+    step="pick_pkg";
+  }
+
+  window.pickPkg=async function(id,label,price){
+    selPkg={id,label,price};
+    clearQuick();
+    await bubble(`${label} — ${price.toLocaleString()} جنيه`,"me");
+    await typing(500);
+    showForm();
+  };
+
+  async function showForm(){
+    await bubble(`تمام! محتاج منك البيانات دي:<div class="order-form">
+      <input id="fId"   placeholder="Player ID (ID اللاعب)" inputmode="numeric"/>
+      <input id="fName" placeholder="اسمك في اللعبة"/>
+      <button class="submit-btn" id="fBtn" onclick="doSubmit()">✅ تأكيد الطلب</button>
+    </div>`);
+    step="fill_form";
+  }
+
+  window.doSubmit=async function(){
+    const gameId   = document.getElementById("fId")?.value?.trim();
+    const gameName = document.getElementById("fName")?.value?.trim();
+    const btn      = document.getElementById("fBtn");
+    if(!gameId||!gameName){alert("من فضلك أدخل ID اللاعب واسمك في اللعبة");return;}
+    btn.disabled=true; btn.textContent="جاري الإرسال...";
+    await bubble(`ID: ${gameId} | الاسم: ${gameName}`,"me");
+    await typing(800);
+
+    try{
+      const ref=await addDoc(collection(db,"orders"),{
+        customerName: custName,
+        gameId, gameName,
+        package: selPkg,
+        status: "pending",
+        createdAt: serverTimestamp(),
+        messages:[{from:"system",text:`طلب جديد: ${selPkg.label} — ${selPkg.price} جنيه`,ts:Date.now()}]
+      });
+      orderId=ref.id;
+      localStorage.setItem("hs_order_id",orderId);
+
+      await bubble(`✅ <strong>تم استلام طلبك!</strong>
+        <div class="order-summary">
+          <div class="os-row"><span class="lbl">الباقة</span><span class="val">${selPkg.label}</span></div>
+          <div class="os-row"><span class="lbl">السعر</span><span class="val">${selPkg.price.toLocaleString()} جنيه</span></div>
+          <div class="os-row"><span class="lbl">Player ID</span><span class="val">${gameId}</span></div>
+          <div class="os-row"><span class="lbl">رقم الطلب</span><span class="val"><span class="os-id">#${orderId.slice(-8).toUpperCase()}</span></span></div>
+        </div>
+        <span class="s-badge pending">⏳ قيد المراجعة</span><br/>
+        هنبعتلك رقم الكاش خلال دقائق 👇`);
+
+      requestNotif();
+      listenOrder();
+    }catch(e){
+      await bubble("❌ حصل خطأ، جرب تاني.");
+      btn.disabled=false; btn.textContent="✅ تأكيد الطلب";
+    }
+  };
+
+  async function loadExisting(){
+    await typing(500);
+    await bubble(`أهلاً بعودتك! 👋 بجيب طلبك...`);
+    listenOrder();
+  }
+
+  function listenOrder(){
+    onSnapshot(doc(db,"orders",orderId),snap=>{
+      if(!snap.exists())return;
+      const data=snap.data();
+      renderMsgs(data.messages||[],data.status);
+    });
+  }
+
+  let rendered={};
+  function renderMsgs(msgs,status){
+    msgs.forEach((m,i)=>{
+      if(rendered[i])return;
+      rendered[i]=true;
+      if(m.from==="admin"){
+        bubble(m.text,"store");
+        if(Notification.permission==="granted")
+          new Notification("Hitler Store 🔥",{body:m.text});
+      } else if(m.from==="system" && i>0){
+        bubble(m.text,"system");
+      }
+    });
+
+    if(status==="confirmed" && !rendered["confirmed"]){
+      rendered["confirmed"]=true;
+      bubble(`<span class="s-badge confirmed">✅ تم التأكيد — جاهز للتحويل</span>`,"system");
+    }
+    if(status==="done" && !rendered["done"]){
+      rendered["done"]=true;
+      bubble(`🎉 <strong>تمت عملية الشحن بنجاح!</strong><br/>افتح اللعبة وهتلاقي الشدات جاهزة.`,"system");
+    }
+
+    setQuick([{label:"📋 حالة طلبي",action:checkStatus},{label:"❓ سؤال",action:()=>enableInput()}]);
+    step="chat"; enableInput();
+  }
+
+  async function checkStatus(){
+    const{getDoc}=await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js");
+    const snap=await getDoc(doc(db,"orders",orderId));
+    const st=snap.data()?.status;
+    const labels={pending:"⏳ قيد المراجعة",confirmed:"✅ مؤكد — جاهز للتحويل",done:"🎉 تم الشحن"};
+    bubble(`حالة طلبك: <span class="s-badge ${st}">${labels[st]||st}</span>`);
+  }
+
+  // ── Send ──
+  window.sendMsg=async function(){
+    const text=input.value.trim(); if(!text)return;
+    input.value=""; autoResize(input);
+    if(step==="ask_name"){handleName(text);return;}
+    if(step==="chat"&&orderId){
+      bubble(text,"me");
+      const{updateDoc,arrayUnion,doc:d}=await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js");
+      await updateDoc(doc(db,"orders",orderId),{
+        messages:arrayUnion({from:"customer",text,ts:Date.now()})
+      });
+    }
+  };
+
+  function requestNotif(){
+    if("Notification"in window&&Notification.permission==="default")
+      Notification.requestPermission();
+  }
+
+  start();
+</script>
+<script>
+  function autoResize(el){el.style.height="auto";el.style.height=Math.min(el.scrollHeight,110)+"px"}
+</script>
+</body>
+</html>
