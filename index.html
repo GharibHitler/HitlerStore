@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Hitler Store • شدات PUBG</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Space+Mono:wght@700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<div id="ld" class="loader">
+  <div class="ld-logo">HITLER<em>STORE</em></div>
+  <div class="ld-bar"><div class="ld-fill" id="ldP"></div></div>
+  <div class="ld-txt" id="ldTxt">0%</div>
+</div>
+<div class="cur" id="cur"></div>
+<div class="cur-r" id="cur-r"></div>
+<div class="bg-glow"></div>
+
+<nav id="nav">
+  <div class="nav-in">
+    <a href="index.html" class="nav-logo">HS<em>.</em></a>
+    <div class="nav-links">
+      <a href="#packages" class="nav-link">الباقات</a>
+      <a href="#offers" class="nav-link">العروض</a>
+      <a href="#how" class="nav-link">كيف تشتري</a>
+    </div>
+    <a href="#packages" class="btn-nav">اشتري ⚡</a>
+    <button class="burger" id="burger">☰</button>
+  </div>
+  <div class="mob-nav" id="mobNav">
+    <a href="#packages" onclick="closeMob()">الباقات</a>
+    <a href="#offers" onclick="closeMob()">العروض</a>
+    <a href="#how" onclick="closeMob()">كيف تشتري</a>
+  </div>
+</nav>
+
+<div class="ticker-wrap"><div class="ticker" id="ticker"></div></div>
+
+<section class="hero">
+  <div class="hero-badge"><span class="dot"></span> متجر موثوق • تسليم فوري</div>
+  <h1>شدات PUBG<br/><em>بأفضل الأسعار</em></h1>
+  <p>اشتري UC بسرعة وأمان — بدون تعقيد، بدون انتظار</p>
+  <div class="hero-btns">
+    <a href="#packages" class="btn-primary">اشتري دلوقتي 🛒</a>
+    <a href="#how" class="btn-ghost">كيف تشتري؟</a>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat"><strong>+500</strong><span>عميل راضي</span></div>
+    <div class="hero-stat"><strong>فوري</strong><span>وقت التسليم</span></div>
+    <div class="hero-stat"><strong>24/7</strong><span>دعم مستمر</span></div>
+  </div>
+</section>
+
+<section class="section" id="packages">
+  <div class="section-head">
+    <div class="section-tag">شدات UC</div>
+    <h2>اختار باقتك</h2>
+    <p>أسعار مناسبة لكل الميزانيات</p>
+  </div>
+  <div class="uc-grid" id="ucGrid"></div>
+</section>
+
+<section class="section" id="offers">
+  <div class="section-head">
+    <div class="section-tag">عروض خاصة</div>
+    <h2>عروض الازدهار والعضويات</h2>
+    <p>عروض حصرية بأقل الأسعار</p>
+  </div>
+  <div class="offers-grid" id="offersGrid"></div>
+</section>
+
+<div class="how-section" id="how">
+  <div class="section">
+    <div class="section-head">
+      <div class="section-tag">كيف تشتري</div>
+      <h2>في 3 خطوات بس</h2>
+    </div>
+    <div class="steps-grid">
+      <div class="step reveal"><div class="step-n">01</div><div class="step-ico">🛒</div><h3>اختار الباقة</h3><p>اختار الباقة اللي تناسبك واضغط اشتري</p></div>
+      <div class="step reveal"><div class="step-n">02</div><div class="step-ico">📝</div><h3>أدخل بياناتك</h3><p>اكتب اسمك وPlayer ID بتاعك في اللعبة</p></div>
+      <div class="step reveal"><div class="step-n">03</div><div class="step-ico">⚡</div><h3>استلم فوراً</h3><p>هنتواصل معاك على تليجرام ونشحن فوراً</p></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">HITLER<em>STORE</em></div>
+  <div class="footer-sub">متجر شدات PUBG Mobile • جميع الحقوق محفوظة 2025</div>
+</footer>
+
+<div class="pop" id="pop"></div>
+
+<!-- ORDER MODAL -->
+<div class="overlay" id="oMo">
+  <div class="modal">
+    <button class="modal-x" onclick="closeMo()">✕</button>
+    <div class="modal-pkg">
+      <span id="moPkgN">—</span>
+      <span class="modal-pkg-p" id="moPkgP">—</span>
+    </div>
+    <h3 class="modal-title">📝 أدخل بياناتك</h3>
+    <div class="field"><label>اسمك الحقيقي</label><input type="text" id="inName" placeholder="أحمد محمد"/></div>
+    <div class="field"><label>Player ID في اللعبة</label><input type="text" id="inPID" placeholder="123456789" inputmode="numeric"/></div>
+    <div class="field"><label>رقم موبايلك (واتساب / تليجرام)</label><input type="tel" id="inPhone" placeholder="01xxxxxxxxx" inputmode="numeric"/></div>
+    <div class="mo-err" id="moErr"></div>
+    <button class="mo-submit" id="moSubmit" onclick="submitOrder()">إرسال الطلب ⚡</button>
+  </div>
+</div>
+
+<!-- SUCCESS MODAL -->
+<div class="overlay" id="sMo">
+  <div class="modal s-modal">
+    <div class="s-ico">✅</div>
+    <h3>تم إرسال طلبك!</h3>
+    <p>طلبك وصلنا بنجاح.<br/>افتح البوت على تليجرام عشان تتابع طلبك وتستلم تفاصيل الدفع.</p>
+    <a id="tgLink" href="#" target="_blank" class="tg-btn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248-2.032 9.571c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.04 13.988 4.08 13.08c-.65-.203-.664-.65.136-.961l10.868-4.19c.54-.194 1.013.131.838.957z"/></svg>
+      فتح البوت على تليجرام
+    </a>
+    <button onclick="closeSMo()" class="s-close">إغلاق</button>
+  </div>
+</div>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
