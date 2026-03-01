@@ -148,7 +148,7 @@ function showDash(){
 }
 
 function initDash(){
-  const app=getApps().length?getApp():initializeApp(FIREBASE_CONFIG);
+  const app=getApps().find(a=>a.name==="auth")||initializeApp(FIREBASE_CONFIG,"auth");
   const db=getFirestore(app);
 
   // templates
