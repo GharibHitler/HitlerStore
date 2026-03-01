@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>HITLERSTORE • تسجيل الدخول</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=Tajawal:wght@400;500;700;900&family=Space+Mono:wght@700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<div class="hero-glow"></div>
+<div class="hero-grid"></div>
+
+<nav id="nav" class="stuck">
+  <div class="nav-in">
+    <a href="index.html" class="nav-logo">HS<em>.</em></a>
+    <div style="margin-right:auto"></div>
+    <a href="index.html" class="nav-login">← العودة للمتجر</a>
+  </div>
+</nav>
+
+<div class="auth-page">
+  <div class="auth-box">
+    <div class="auth-logo">HITLER<em>STORE</em></div>
+    <div class="auth-tagline">مرحباً بك — سجّل أو أنشئ حساب جديد</div>
+
+    <div class="auth-tabs">
+      <button class="auth-tab on" id="tIn" onclick="tab('in')">دخول</button>
+      <button class="auth-tab" id="tUp" onclick="tab('up')">حساب جديد</button>
+    </div>
+
+    <div id="fIn">
+      <input type="tel" id="inPhone" class="auth-inp" placeholder="رقم الموبايل">
+      <input type="password" id="inPass" class="auth-inp" placeholder="كلمة المرور">
+      <div id="inErr" class="auth-err"></div>
+      <button id="inBtn" class="auth-btn" onclick="doSignIn()">دخول الآن</button>
+    </div>
+
+    <div id="fUp" style="display:none">
+      <input type="text" id="upName" class="auth-inp" placeholder="الاسم الثلاثي">
+      <input type="tel" id="upPhone" class="auth-inp" placeholder="رقم الموبايل">
+      <input type="text" id="upPID" class="auth-inp" placeholder="ID اللاعب (الأيدي)">
+      <input type="text" id="upGN" class="auth-inp" placeholder="اسمك في اللعبة">
+      <input type="password" id="upPass" class="auth-inp" placeholder="كلمة المرور (6+ رموز)">
+      <input type="password" id="upPass2" class="auth-inp" placeholder="تأكيد كلمة المرور">
+      <div id="upErr" class="auth-err"></div>
+      <button id="upBtn" class="auth-btn" onclick="doSignUp()">إنشاء الحساب</button>
+    </div>
+  </div>
+</div>
+
+<script src="firebase-config.js"></script>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+  import { getFirestore, doc, setDoc, getDocs, collection, query, where } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+  const app = initializeApp(FIREBASE_CONFIG);
+  const db = getFirestore(app);
+
+  // Helper function to encode password safely (supports Arabic)
+  const safeBtoA = (str) => btoa(unescape(encodeURIComponent(str)));
+
+  window.tab = (t) => {
+    document.getElementById("fIn").style.display = t==='in'?'block':'none';
+    document.getElementById("fUp").style.display = t==='up'?'block':'none';
+    document.getElementById("tIn").className = t==='in'?'auth-tab on':'auth-tab';
+    document.getElementById("tUp").className = t==='up'?'auth-tab on':'auth-tab';
+  };
+
+  const err = (id,m) => { const e=document.getElementById(id); e.innerText=m; e.style.display="block"; };
+  const loading = (id,b) => { document.getElementById(id).disabled=b; document.getElementById(id).innerText=b?"جاري...":"تنفيذ"; };
+
+  window.doSignUp = async () => {
+    const realName = document.getElementById("upName").value.trim();
+    const phone    = document.getElementById("upPhone").value.trim();
+    const gameId   = document.getElementById("upPID").value.trim();
+    const gameName = document.getElementById("upGN").value.trim();
+    const pass     = document.getElementById("upPass").value;
+    const pass2    = document.getElementById("upPass2").value;
+
+    if(!realName || !phone || !gameId || !gameName || !pass){ err("upErr","أكمل جميع الحقول"); return; }
+    if(pass.length < 6){ err("upErr","كلمة المرور أقل من 6 خانات"); return; }
+    if(pass !== pass2){ err("upErr","كلمتا المرور غير متطابقتين"); return; }
+    if(!/^[0-9]{9,15}$/.test(phone)){ err("upErr","رقم الموبايل غير صحيح"); return; }
+
+    loading("upBtn", true);
+    try {
+      const q = query(collection(db, "users"), where("phone", "==", phone));
+      const snap = await getDocs(q);
+      if(!snap.empty){ 
+        err("upErr", "الرقم ده مسجّل بالفعل — سجّل دخول"); 
+        loading("upBtn", false); 
+        return; 
+      }
+
+      const uid = "u_" + Date.now();
+      await setDoc(doc(db, "users", uid), {
+        uid, realName, phone, gameId, gameName,
+        password: safeBtoA(pass), 
+        createdAt: Date.now()
+      });
+
+      localStorage.setItem("hs_user", JSON.stringify({uid, realName, phone, gameId, gameName}));
+      location.href = "index.html";
+    } catch(e) {
+      console.error("Firebase Error:", e);
+      err("upErr", "حدث خطأ في الاتصال بقاعدة البيانات. تأكد من إعدادات Firestore.");
+      loading("upBtn", false);
+    }
+  };
+
+  window.doSignIn = async () => {
+    const phone = document.getElementById("inPhone").value.trim();
+    const pass  = document.getElementById("inPass").value;
+
+    if(!phone || !pass){ err("inErr","أدخل البيانات"); return; }
+
+    loading("inBtn", true);
+    try {
+      const q = query(collection(db, "users"), where("phone", "==", phone), where("password", "==", safeBtoA(pass)));
+      const snap = await getDocs(q);
+
+      if(snap.empty){
+        err("inErr", "بيانات الدخول غير صحيحة");
+        loading("inBtn", false);
+        return;
+      }
+
+      const userData = snap.docs[0].data();
+      localStorage.setItem("hs_user", JSON.stringify(userData));
+      location.href = "index.html";
+    } catch(e) {
+      console.error("Firebase Error:", e);
+      err("inErr", "حدث خطأ أثناء تسجيل الدخول");
+      loading("inBtn", false);
+    }
+  };
+</script>
+</body>
+</html>
