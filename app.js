@@ -111,7 +111,7 @@ window.submitOrder=async function(){
   try{
     const {initializeApp,getApps,getApp}=await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js");
     const {getFirestore,addDoc,collection,serverTimestamp}=await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js");
-    const app=getApps().length?getApp():initializeApp(FIREBASE_CONFIG);
+    const app=getApps().find(a=>a.name==="auth")||initializeApp(FIREBASE_CONFIG,"auth");
     const db=getFirestore(app);
     const ref=await addDoc(collection(db,"orders"),{
       uid:_user.uid,
