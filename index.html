@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>متجر هتلر | شحن ألعاب — PUBG · Free Fire · eFootball</title>
+  <meta name="description" content="متجر هتلر — شحن شدات PUBG، جواهر Free Fire، Coin eFootball في مصر. أسعار حصرية وشحن فوري."/>
+  <meta name="keywords" content="شدات ببجي, UC pubg, شحن فري فاير, جواهر, efootball coin, شحن العاب مصر"/>
+  <meta property="og:title" content="متجر هتلر | شحن ألعاب"/>
+  <meta property="og:description" content="شحن فوري · أسعار حصرية · PUBG · Free Fire · eFootball"/>
+  <meta name="theme-color" content="#FF6B00"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Oxanium:wght@400;600;800;900&family=Tajawal:wght@300;400;500;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="ld-inner">
+    <div class="ld-logo">HITLER <em>STORE</em></div>
+    <div class="ld-divider"></div>
+    <div class="ld-sub">PUBG · Free Fire · eFootball</div>
+    <div class="ld-bar-row">
+      <div class="ld-bar"><div class="ld-fill" id="ldFill"></div></div>
+      <span class="ld-pct" id="ldPct">0%</span>
+    </div>
+    <div class="ld-dots"><span></span><span></span><span></span></div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header id="hdr">
+  <div class="hdr-wrap">
+    <a href="#home" class="logo">
+      <div class="logo-icon">⚡</div>
+      <div class="logo-text">
+        <span class="l1">HITLER STORE</span>
+        <span class="l2">Gaming Shop · EG</span>
+      </div>
+    </a>
+    <nav class="hdr-nav">
+      <a href="#games"       onclick="closeMob()">الألعاب</a>
+      <a href="#calculator"  onclick="closeMob()">الحاسبة</a>
+      <a href="#how"         onclick="closeMob()">الشراء</a>
+    </nav>
+    <div class="hdr-right">
+      <button class="btn-cur" id="curBtn">
+        <span id="curLabel">EGP</span> ⇄ USD
+      </button>
+      <a href="https://wa.me/201270139747" target="_blank" class="btn-wa-hdr">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        واتساب
+      </a>
+    </div>
+    <button class="burger" id="burger">☰</button>
+  </div>
+  <nav class="mob-nav" id="mobNav">
+    <a href="#games"       onclick="closeMob()">🎮 الألعاب</a>
+    <a href="#calculator"  onclick="closeMob()">🧮 الحاسبة</a>
+    <a href="#how"         onclick="closeMob()">📋 الشراء</a>
+    <a href="https://wa.me/201270139747" target="_blank" class="mob-wa">📱 واتساب</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <div class="diamond-grid"></div>
+    <div class="glow-top"></div>
+    <div class="hero-line"></div>
+  </div>
+  <div class="hero-wrap">
+    <div class="hero-left">
+      <div class="hero-eyebrow"><span class="live-dot"></span>الأول في مصر — موثوق ومضمون</div>
+      <h1 class="hero-h1">
+        <span class="h1-sm">شحن</span>
+        <span class="h1-big">GAMING<br/>STORE</span>
+      </h1>
+      <div class="hero-brand">متجر <strong>هتلر</strong> الرسمي</div>
+      <p class="hero-desc">شحن شدات PUBG · جواهر Free Fire · Coin eFootball — أسعار تنافسية وتسليم فوري خلال دقائق.</p>
+      <div class="hero-game-pills">
+        <div class="gpill gpill-pubg">🎯 PUBG Mobile</div>
+        <div class="gpill gpill-ff">🔥 Free Fire</div>
+        <div class="gpill gpill-ef">⚽ eFootball</div>
+      </div>
+      <div class="hero-pills">
+        <div class="pill">✅ شحن أصلي 100%</div>
+        <div class="pill">⚡ توصيل فوري</div>
+        <div class="pill">🔒 دفع آمن</div>
+        <div class="pill">🌙 دعم 24/7</div>
+      </div>
+      <div class="hero-ctas">
+        <a href="#games" class="cta-main">🛒 تصفح الألعاب</a>
+        <a href="https://wa.me/201270139747" target="_blank" class="cta-wa">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          تواصل معنا
+        </a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="stats-card">
+        <div class="stats-head"><span class="live-dot"></span>إحصائيات المتجر — مباشر</div>
+        <div class="stat-row"><span class="stat-lbl">عملاء راضون</span><span class="stat-val gold">+5,000</span></div>
+        <div class="stat-row"><span class="stat-lbl">طلبات منجزة</span><span class="stat-val gold">+12,000</span></div>
+        <div class="stat-row"><span class="stat-lbl">معدل الرضا</span><span class="stat-val green">99.8%</span></div>
+        <div class="stat-row"><span class="stat-lbl">ألعاب متاحة</span><span class="stat-val white">3 ألعاب</span></div>
+        <div class="stats-foot">
+          <div class="trust-row"><span>🔒</span> بيانات حسابك آمنة تماماً</div>
+          <div class="trust-row"><span>⚡</span> شحن فوري خلال دقائق</div>
+          <div class="trust-row"><span>💬</span> دعم فني على واتساب</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-bar-wrap">
+    <div class="tb"><span>🔒</span> دفع آمن 100%</div>
+    <div class="tb"><span>⚡</span> تسليم فوري</div>
+    <div class="tb"><span>✅</span> شحن أصلي</div>
+    <div class="tb"><span>🌟</span> دعم 24/7</div>
+    <div class="tb"><span>🔄</span> استرداد مضمون</div>
+    <div class="tb"><span>🏆</span> الأفضل في مصر</div>
+  </div>
+</div>
+
+<!-- ══ GAMES SECTION ══ -->
+<section class="sec sec-alt" id="games">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-ornament"><div class="sec-tag">🎮 الألعاب</div></div>
+      <h2 class="sec-h2">اختر <em>لعبتك</em></h2>
+      <p class="sec-sub">كل لعبة في تبويب منفصل — اضغط واشتري</p>
+    </div>
+
+    <!-- GAME TABS -->
+    <div class="game-tabs reveal" id="gameTabs">
+      <button class="gtab active" data-game="pubg" onclick="switchGame('pubg',this)">
+        <svg class="gtab-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- PUBG UC / شدة شكل مخصص -->
+          <circle cx="24" cy="24" r="20" fill="currentColor" opacity="0.12"/>
+          <polygon points="24,8 28,20 40,20 30,28 34,40 24,32 14,40 18,28 8,20 20,20" fill="currentColor" opacity="0.9"/>
+        </svg>
+        <span>PUBG Mobile</span>
+        <small>شدات UC</small>
+      </button>
+      <button class="gtab" data-game="freefire" onclick="switchGame('freefire',this)">
+        <span class="gtab-emoji">🔥</span>
+        <span>Free Fire</span>
+        <small>جواهر</small>
+      </button>
+      <button class="gtab" data-game="efootball" onclick="switchGame('efootball',this)">
+        <span class="gtab-emoji">⚽</span>
+        <span>eFootball</span>
+        <small>Coin</small>
+      </button>
+    </div>
+
+    <!-- PUBG PANEL -->
+    <div class="game-panel" id="panel-pubg">
+      <!-- UC Packages -->
+      <div class="panel-section">
+        <div class="panel-sec-head">
+          <div class="panel-sec-title">
+            <!-- شدة ببجي SVG -->
+            <svg width="28" height="28" viewBox="0 0 48 48" fill="none">
+              <circle cx="24" cy="24" r="20" fill="#C9A84C" opacity="0.15"/>
+              <polygon points="24,8 28,20 40,20 30,28 34,40 24,32 14,40 18,28 8,20 20,20" fill="#C9A84C"/>
+            </svg>
+            باقات الشدات
+          </div>
+          <div class="panel-sec-sub">اختر الكمية المناسبة · شحن فوري</div>
+        </div>
+        <div class="pkg-grid" id="grid-pubg-uc"></div>
+      </div>
+
+      <!-- Prosperity -->
+      <div class="panel-section">
+        <div class="panel-sec-head">
+          <div class="panel-sec-title">🌸 عروض الازدهار</div>
+          <div class="panel-sec-sub">عروض موسمية حصرية</div>
+        </div>
+        <div class="pros-grid" id="grid-pubg-pros"></div>
+      </div>
+
+      <!-- Memberships -->
+      <div class="panel-section">
+        <div class="panel-sec-head">
+          <div class="panel-sec-title">👑 عضويات PRIME</div>
+          <div class="panel-sec-sub">اشترك شهرياً واحصل على مكافآت</div>
+        </div>
+        <div class="mem-grid" id="grid-pubg-mem"></div>
+      </div>
+    </div>
+
+    <!-- FREE FIRE PANEL -->
+    <div class="game-panel hidden" id="panel-freefire">
+      <div class="panel-section">
+        <div class="panel-sec-head">
+          <div class="panel-sec-title">💎 باقات الجواهر</div>
+          <div class="panel-sec-sub">جواهر فري فاير · شحن فوري</div>
+        </div>
+        <div class="pkg-grid" id="grid-ff-uc"></div>
+      </div>
+    </div>
+
+    <!-- EFOOTBALL PANEL -->
+    <div class="game-panel hidden" id="panel-efootball">
+      <!-- Special Batistuta -->
+      <div class="panel-section" id="ef-special-wrap"></div>
+
+      <div class="panel-section">
+        <div class="panel-sec-head">
+          <div class="panel-sec-title">🪙 باقات Coin</div>
+          <div class="panel-sec-sub" id="ef-charge-note">الشحن عبر Konami ID</div>
+        </div>
+        <div class="pkg-grid" id="grid-ef-uc"></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ CALCULATOR ══ -->
+<section class="sec" id="calculator">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-ornament"><div class="sec-tag">🧮 الحاسبة</div></div>
+      <h2 class="sec-h2">حاسبة <em>العملات</em></h2>
+      <p class="sec-sub">احسب كم تحتاج أو كم ستدفع — بضغطة واحدة</p>
+    </div>
+
+    <div class="calc-card reveal">
+
+      <!-- Game selector for calculator -->
+      <div class="calc-game-sel">
+        <button class="cgs active" data-cg="pubg"     onclick="setCalcGame('pubg',this)">🎯 PUBG</button>
+        <button class="cgs"        data-cg="freefire"  onclick="setCalcGame('freefire',this)">🔥 Free Fire</button>
+        <button class="cgs"        data-cg="efootball" onclick="setCalcGame('efootball',this)">⚽ eFootball</button>
+      </div>
+
+      <!-- Mode Tabs -->
+      <div class="calc-tabs">
+        <button class="calc-tab active" id="tabUC"    onclick="switchTab('uc')">
+          💎 عملة ← سعر
+        </button>
+        <button class="calc-tab"        id="tabMoney" onclick="switchTab('money')">
+          💰 فلوس ← عملة
+        </button>
+      </div>
+
+      <!-- Panel UC → Price -->
+      <div class="calc-panel" id="panelUC">
+        <div class="calc-inner">
+          <div class="calc-left">
+            <label class="calc-label" id="calc-lbl-uc">كم شدة تحتاج؟</label>
+            <div class="calc-field">
+              <input type="number" id="inpUC" class="calc-input" placeholder="مثال: 1000" min="1" max="99999" oninput="calcUC()"/>
+              <span class="calc-unit" id="calc-unit-uc">UC</span>
+            </div>
+            <p class="calc-note">⚠️ الشدات لا تُشحن بأعداد عشوائية — سنجمع الباقات المتاحة للوصول إلى العدد المطلوب.</p>
+          </div>
+          <div class="calc-result" id="resUC">
+            <div class="calc-placeholder"><span>🎮</span><span>أدخل العدد لتظهر النتيجة</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel Money → UC -->
+      <div class="calc-panel hidden" id="panelMoney">
+        <div class="calc-inner">
+          <div class="calc-left">
+            <label class="calc-label">💰 كم معك من الجنيهات؟</label>
+            <div class="calc-field">
+              <input type="number" id="inpMoney" class="calc-input" placeholder="مثال: 500" min="1" oninput="calcMoney()"/>
+              <span class="calc-unit">جنيه</span>
+            </div>
+            <p class="calc-note">💡 سنعرض أفضل تشكيلة باقات تناسب ميزانيتك وتعطيك أكبر عدد من العملات.</p>
+          </div>
+          <div class="calc-result" id="resMoney">
+            <div class="calc-placeholder"><span>💰</span><span>أدخل المبلغ لتظهر النتيجة</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO BUY -->
+<section class="sec sec-alt" id="how">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-ornament"><div class="sec-tag">📋 الطريقة</div></div>
+      <h2 class="sec-h2">كيف <em>تشتري؟</em></h2>
+      <p class="sec-sub">أربع خطوات بسيطة وعملتك على حسابك</p>
+    </div>
+    <div class="steps-grid" id="stepsGrid"></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div class="footer-logo">HITLER <em>STORE</em></div>
+    <p class="footer-desc">شحن ألعاب احترافي في مصر 🇪🇬 · PUBG · Free Fire · eFootball</p>
+    <a href="https://wa.me/201270139747" target="_blank" class="footer-wa">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      +201270139747
+    </a>
+    <p class="footer-copy">© 2025 متجر هتلر — جميع الحقوق محفوظة</p>
+  </div>
+</footer>
+
+<!-- WA FLOAT -->
+<a href="https://wa.me/201270139747" target="_blank" class="wa-float" title="تواصل على واتساب">
+  <span class="wa-ring"></span>
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<!-- LIVE POPUPS -->
+<div id="live-pop"></div>
+
+<script src="app.js"></script>
+</body>
+</html>

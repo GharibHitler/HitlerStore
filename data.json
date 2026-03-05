@@ -1,0 +1,98 @@
+{
+  "store": {
+    "name": "Hitler Store",
+    "whatsapp": "201270139747",
+    "usd_rate": 50
+  },
+
+  "games": [
+    {
+      "id": "pubg",
+      "label": "PUBG Mobile",
+      "emoji": "🎯",
+      "currency": "UC",
+      "currency_label": "شدة",
+      "packages": [
+        { "id":1, "amount":60,   "price_egp":55,   "badge":"",              "hot":false },
+        { "id":2, "amount":325,  "price_egp":240,  "badge":"",              "hot":false },
+        { "id":3, "amount":385,  "price_egp":290,  "badge":"جديد",          "hot":false },
+        { "id":4, "amount":660,  "price_egp":450,  "badge":"",              "hot":true  },
+        { "id":5, "amount":1845, "price_egp":1200, "badge":"الأكثر مبيعاً", "hot":true  },
+        { "id":6, "amount":3940, "price_egp":2300, "badge":"خصم",           "hot":false },
+        { "id":7, "amount":8280, "price_egp":4450, "badge":"VIP",           "hot":false }
+      ],
+      "prosperity": [
+        { "id":"p1", "name":"عرض الازدهار الأول",  "price_egp":60,  "icon":"🌸" },
+        { "id":"p2", "name":"عرض الازدهار الثاني", "price_egp":150, "icon":"🌺", "badge":"شعبي" },
+        { "id":"p3", "name":"عرض الازدهار الثالث", "price_egp":240, "icon":"🌹" }
+      ],
+      "memberships": [
+        {
+          "id":"m1", "name":"PRIME العادية", "price_egp":55, "prime":false, "icon":"⭐",
+          "features":["مكافآت يومية","تجربة حصرية","مكافأة الولاء"]
+        },
+        {
+          "id":"m2", "name":"PRIME المميزة", "price_egp":485, "prime":true, "icon":"👑",
+          "features":["كل مميزات العادية","مكافآت إضافية","أولوية الدعم","عناصر حصرية"]
+        }
+      ]
+    },
+
+    {
+      "id": "freefire",
+      "label": "Free Fire",
+      "emoji": "🔥",
+      "currency": "جوهرة",
+      "currency_label": "جوهرة",
+      "packages": [
+        { "id":1, "amount":110,  "price_egp":60,  "badge":"",              "hot":false },
+        { "id":2, "amount":231,  "price_egp":110, "badge":"",              "hot":false },
+        { "id":3, "amount":583,  "price_egp":245, "badge":"الأكثر مبيعاً", "hot":true  },
+        { "id":4, "amount":1088, "price_egp":490, "badge":"",              "hot":false },
+        { "id":5, "amount":2420, "price_egp":950, "badge":"VIP",           "hot":false }
+      ]
+    },
+
+    {
+      "id": "efootball",
+      "label": "eFootball Mobile",
+      "emoji": "⚽",
+      "currency": "Coin",
+      "currency_label": "Coin",
+      "charge_note": "الشحن عبر Konami ID",
+      "special": {
+        "name": "باتيستوتا — عرض خاص",
+        "price_egp": 50,
+        "days": 154
+      },
+      "packages": [
+        { "id":1,  "amount":137,   "price_egp":80,    "badge":"",              "hot":false },
+        { "id":2,  "amount":315,   "price_egp":170,   "badge":"",              "hot":false },
+        { "id":3,  "amount":578,   "price_egp":280,   "badge":"",              "hot":false },
+        { "id":4,  "amount":788,   "price_egp":370,   "badge":"الأكثر مبيعاً", "hot":true  },
+        { "id":5,  "amount":1092,  "price_egp":500,   "badge":"",              "hot":false },
+        { "id":6,  "amount":2237,  "price_egp":1000,  "badge":"",              "hot":false },
+        { "id":7,  "amount":3413,  "price_egp":1450,  "badge":"",              "hot":false },
+        { "id":8,  "amount":5985,  "price_egp":2450,  "badge":"",              "hot":false },
+        { "id":9,  "amount":13440, "price_egp":5200,  "badge":"",              "hot":false },
+        { "id":10, "amount":32200, "price_egp":12300, "badge":"VIP",           "hot":false }
+      ]
+    }
+  ],
+
+  "steps": [
+    { "num":"01", "icon":"🎮", "title":"اختر لعبتك",    "desc":"اختر اللعبة والباقة المناسبة ليك من التبويبات" },
+    { "num":"02", "icon":"📱", "title":"واتساب فوري",    "desc":"اضغط اشترِ وهيفتح واتساب برسالة جاهزة تلقائياً" },
+    { "num":"03", "icon":"💳", "title":"ادفع بأمان",     "desc":"أرسل ID حسابك وادفع بأي طريقة تناسبك" },
+    { "num":"04", "icon":"⚡", "title":"استلم فوراً",    "desc":"تُشحن العملات فورياً على حسابك بعد التأكيد" }
+  ],
+
+  "popups": {
+    "names": ["أحمد من القاهرة","محمد من الإسكندرية","علي من الجيزة","يوسف من المنصورة","عمر من الإسماعيلية","خالد من أسيوط","مصطفى من سوهاج","كريم من دمياط"],
+    "purchases": [
+      "660 UC — 450 جنيه","325 UC — 240 جنيه","PRIME المميزة — 485 جنيه",
+      "1845 UC — 1200 جنيه","عرض الازدهار الثاني","583 جوهرة — 245 جنيه",
+      "788 Coin — 370 جنيه","110 جوهرة — 60 جنيه","باتيستوتا — 50 جنيه"
+    ]
+  }
+}
